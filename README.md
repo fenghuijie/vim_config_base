@@ -1,9 +1,3 @@
-Maple's Vim config
-==================
-
-#### Most of the time we are writing code so we need:
-## Code Completions
-
 Such as completions for variable names and function names(neocomplcache), expanding snippets(snipMate), auto closing brackets/brace/quote(delimitMate) and fast expand expressions to HTML(ZenCoding).
 
 * [neocomplcache](http://github.com/Shougo/neocomplcache) - Ultimate auto completion system for Vim.
