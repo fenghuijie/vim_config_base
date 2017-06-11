@@ -57,25 +57,24 @@ set expandtab       " expand tab to space
 "-----------------
 " Plugin settings
 "-----------------
-" Tagbar
+"******Tagbar******************
 let g:tagbar_left=1
 let g:tagbar_width=30
 let g:tagbar_autofocus = 1
 let g:tagbar_sort = 0
 let g:tagbar_compact = 1
-nmap <F7> :TagbarToggle<cr>
+nmap <F6> :TagbarToggle<cr>
 
-" Nerd Tree
+"******Nerd Tree***************
 let NERDChristmasTree=0
 let NERDTreeWinSize=30
 let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
-" let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 let NERDTreeWinPos = "right"
-nmap <F6> :NERDTreeToggle<cr>
+nmap <F7> :NERDTreeToggle<cr>
 
-" Source Explorer
+"******Source Explorer*********
 nmap <F8> :SrcExplToggle<CR>
 let g:SrcExpl_winHeight = 8
 let g:SrcExpl_refreshTime = 100
@@ -91,14 +90,12 @@ let g:SrcExpl_pluginList = [
 let g:SrcExpl_isUpdateTags = 0
 let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ."
 let g:SrcExpl_updateTagsKey = "<F12>"
-let g:SrcExpl_prevDefKey = "<F3>"
-let g:SrcExpl_nextDefKey = "<F4>" 
 
-" SuperTab
+"******SuperTab****************
 let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
 let g:SuperTabRetainCompletionType=2
 
-" LookupFile
+"******LookupFile**************
 let g:LookupFile_MinPatLength = 2               "最少输入2个字符才开始查找
 let g:LookupFile_PreserveLastPattern = 0        "不保存上次查找的字符串
 let g:LookupFile_PreservePatternHistory = 1     "保存查找历史
@@ -108,26 +105,27 @@ if filereadable("./filenametags")                "设置tag文件的名字
    let g:LookupFile_TagExpr = '"./filenametags"'
 endif
 "map LookupFile as lf
-nmap <silent> <leader>lf :LUTags<cr>
+"nmap <silent> <leader>lf :LUTags<cr>
 "map LUBufs as lb
-nmap <silent> <leader>lb :LUBufs<cr>
+"nmap <silent> <leader>lb :LUBufs<cr>
 "map LUWalk as lw
-nmap <silent> <leader>lw :LUWalk<cr>
+"nmap <silent> <leader>lw :LUWalk<cr>
 
-" Mark 
-nmap <silent> <leader>hl <Plug>MarkSet          "高亮光标所在单词
-vmap <silent> <leader>hl <Plug>MarkSet
-nmap <silent> <leader>hh <Plug>MarkClear        "清除单词高亮
-vmap <silent> <leader>hh <Plug>MarkClear
-nmap <silent> <leader>hr <Plug>MarkRegex
-vmap <silent> <leader>hr <Plug>MarkRegex 
+"******Mark******************** 
+"nmap <silent> <leader>hl <Plug>MarkSet          "高亮光标所在单词
+"vmap <silent> <leader>hl <Plug>MarkSet
+"nmap <silent> <leader>hh <Plug>MarkClear        "清除单词高亮
+"vmap <silent> <leader>hh <Plug>MarkClear
+"nmap <silent> <leader>hr <Plug>MarkRegex
+"vmap <silent> <leader>hr <Plug>MarkRegex 
+source ~/.vim/bundle/mark/mark.vim
 
-" Ctags
+"******ctags*******************
 if filereadable("tags")
     set tags=tags
 endif
 
-" Cscope
+"******cscope******************
 if has("cscope")
     set csprg=/usr/bin/cscope
     set csto=1
@@ -138,14 +136,52 @@ if has("cscope")
     endif
     set csverb
 endif
-nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>     "查找C语言符号，即查找函数名、宏、枚举值等出现的地方
-nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>     "查找函数、宏、枚举等定义的位置，类似ctags所提供的功能
-nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>     "查找调用本函数的函数 
-nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>     "查找指定的字符串 
-nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>     "查找egrep模式，相当于egrep功能，但查找速度快多了
-nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>     "查找并打开文件，类似vim的find功能
-nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>   "查找包含本文件的文件 
-nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>     "查找本函数调用的函数
+nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>     "查找C语言符号，即查找函数名、宏、枚举值等出现的地方
+nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>     "查找函数、宏、枚举等定义的位置，类似ctags所提供的功能
+nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>     "查找调用本函数的函数 
+nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>     "查找指定的字符串 
+nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>     "查找egrep模式，相当于egrep功能，但查找速度快多了
+nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>     "查找并打开文件，类似vim的find功能
+nmap <C-_>i :cs find i <C-R>=expand("<cfile>")<CR><CR>   "查找包含本文件的文件 
+nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>     "查找本函数调用的函数
+
+"******easy motion*************
+let g:EasyMotion_leader_key = '<Leader>'
+
+"******nerdcommenter***********
+let NERDSpaceDelims=1
+let NERDCompactSexyComs=1
+
+"******NeoComplCache***********
+let g:neocomplcache_enable_at_startup=1
+let g:neoComplcache_disableautocomplete=1
+let g:neocomplcache_enable_smart_case=1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+set completeopt-=preview
+imap <C-k> <Plug>(neocomplcache_snippets_force_expand)
+smap <C-k> <Plug>(neocomplcache_snippets_force_expand)
+imap <C-l> <Plug>(neocomplcache_snippets_force_jump)
+smap <C-l> <Plug>(neocomplcache_snippets_force_jump)
+
+"******Enable omni completion**
+if !exists('g:neocomplcache_omni_patterns')
+      let g:neocomplcache_omni_patterns = {}
+  endif
+let g:neocomplcache_omni_patterns.erlang = '[a-zA-Z]\|:'
+
+"******ctrlp*******************
+set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+
+"---------------------------------
+" Keybindings for plugin toggle
+"---------------------------------
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+nmap <F3> :GundoToggle<cr>
+nmap <F4> :IndentGuidesToggle<cr>
+
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
