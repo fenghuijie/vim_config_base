@@ -19,8 +19,8 @@ let g:solarized_termtrans=1
 color solarized
 
 " highlight current line
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
+"au WinLeave * set nocursorline nocursorcolumn
+"au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
 
 " search
@@ -105,11 +105,11 @@ if filereadable("./filenametags")                "设置tag文件的名字
    let g:LookupFile_TagExpr = '"./filenametags"'
 endif
 "map LookupFile as lf
-"nmap <silent> <leader>lf :LUTags<cr>
+nmap <silent> <leader>lf :LUTags<cr>
 "map LUBufs as lb
-"nmap <silent> <leader>lb :LUBufs<cr>
+nmap <silent> <leader>lb :LUBufs<cr>
 "map LUWalk as lw
-"nmap <silent> <leader>lw :LUWalk<cr>
+nmap <silent> <leader>lw :LUWalk<cr>
 
 "******Mark******************** 
 "nmap <silent> <leader>hl <Plug>MarkSet          "高亮光标所在单词
@@ -171,15 +171,15 @@ if !exists('g:neocomplcache_omni_patterns')
 let g:neocomplcache_omni_patterns.erlang = '[a-zA-Z]\|:'
 
 "******ctrlp*******************
-set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+"set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
+"let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
 "---------------------------------
 " Keybindings for plugin toggle
 "---------------------------------
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
-nmap <F3> :GundoToggle<cr>
+"nmap <F3> :GundoToggle<cr>
 nmap <F4> :IndentGuidesToggle<cr>
 
 
