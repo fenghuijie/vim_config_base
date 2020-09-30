@@ -75,21 +75,21 @@ let NERDTreeWinPos = "right"
 nmap <F7> :NERDTreeToggle<cr>
 
 "******Source Explorer*********
-nmap <F8> :SrcExplToggle<CR>
-let g:SrcExpl_winHeight = 8
-let g:SrcExpl_refreshTime = 100
-let g:SrcExpl_jumpKey = "<ENTER>"
-let g:SrcExpl_gobackKey = "<SPACE>"
-let g:SrcExpl_pluginList = [
-         \ "__Tag_List__",
-         \ "_NERD_tree_",
-         \ "__Tagbar__.1",
-         \ "NERD_tree_1",
-         \ "[Lookup File]"
-         \ ]
-let g:SrcExpl_isUpdateTags = 0
-let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ."
-let g:SrcExpl_updateTagsKey = "<F12>"
+"nmap <F8> :SrcExplToggle<CR>
+"let g:SrcExpl_winHeight = 8
+"let g:SrcExpl_refreshTime = 100
+"let g:SrcExpl_jumpKey = "<ENTER>"
+"let g:SrcExpl_gobackKey = "<SPACE>"
+"let g:SrcExpl_pluginList = [
+"         \ "__Tag_List__",
+"        \ "_NERD_tree_",
+"         \ "__Tagbar__.1",
+"         \ "NERD_tree_1",
+"         \ "[Lookup File]"
+"         \ ]
+"let g:SrcExpl_isUpdateTags = 0
+"let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ."
+"let g:SrcExpl_updateTagsKey = "<F12>"
 
 "******SuperTab****************
 let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
@@ -118,7 +118,7 @@ nmap <silent> <leader>lw :LUWalk<cr>
 "vmap <silent> <leader>hh <Plug>MarkClear
 "nmap <silent> <leader>hr <Plug>MarkRegex
 "vmap <silent> <leader>hr <Plug>MarkRegex 
-source ~/.vim/bundle/mark/mark.vim
+source ~/.vim/bundle/mark/plugin/mark.vim
 
 "******ctags*******************
 if filereadable("tags")
@@ -177,11 +177,21 @@ let g:neocomplcache_omni_patterns.erlang = '[a-zA-Z]\|:'
 "---------------------------------
 " Keybindings for plugin toggle
 "---------------------------------
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
+"nnoremap <F2> :set invpaste paste?<CR>
+"set pastetoggle=<F2>
 "nmap <F3> :GundoToggle<cr>
-nmap <F4> :IndentGuidesToggle<cr>
+"nmap <F4> :IndentGuidesToggle<cr>
 
+""""""""""""""""""""""""""""""
+" BufExplorer
+""""""""""""""""""""""""""""""
+let g:bufExplorerDefaultHelp=0       " Do not show default help.
+let g:bufExplorerShowRelativePath=1  " Show relative paths.
+let g:bufExplorerSortBy='mru'        " Sort by most recently used.
+let g:bufExplorerSplitRight=0        " Split left.
+let g:bufExplorerSplitVertical=1     " Split vertically.
+let g:bufExplorerSplitVertSize = 30  " Split width
+let g:bufExplorerUseCurrentWindow=1  " Open in new window.
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *

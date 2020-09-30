@@ -25,7 +25,7 @@ Bundle 'tomtom/tlib_vim'
 "-----------------
 " Fast navigation
 "-----------------
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'Lokaltog/vim-easymotion'
 
 "--------------
 " Fast editing
@@ -72,5 +72,7 @@ Bundle 'nvie/vim-togglemouse'
 " Color Schemes
 "--------------
 Bundle 'altercation/vim-colors-solarized'
+
+Bundle 'jlanzarotta/bufexplorer'
 
 filetype plugin indent on     " required!
